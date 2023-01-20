@@ -1,7 +1,7 @@
 import pygame
 import sys
 import Data.State
-import Data.Mode.Teenager1
+import Data.Mode.Teenager
 
 pygame.init()
 screen = pygame.display.set_mode((800,600))
