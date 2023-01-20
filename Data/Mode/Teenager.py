@@ -1,5 +1,5 @@
 import easygui
-import json1
+import json
 
 def TeenagerSetup():
     try:
