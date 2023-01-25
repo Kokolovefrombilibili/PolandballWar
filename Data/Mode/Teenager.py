@@ -39,4 +39,3 @@ def Execute():
         tb = time.time()
         if tb == te:
             easygui.msgbox(title="游戏终止", msg="游戏时间结束")
-1
