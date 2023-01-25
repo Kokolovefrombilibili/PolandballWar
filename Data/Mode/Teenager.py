@@ -1,5 +1,6 @@
 import easygui
 import json
+import time
 
 def TeenagerSetup():
     try:
@@ -26,3 +27,15 @@ def TeenagerSetup():
     except TypeError:
         easygui.msgbox(title="警告", msg="不能不输入内容")
         TeenagerSetup()
+
+def Execute():
+    with open("Save/TeenagerMode/Time.json") as f:
+        dic = json.load(f)
+    h = int(dic["hour"])
+    m = int(dic["minute"])
+    tb = time.time()
+    te = tb + h * 3600 + m * 60
+    while True:
+        tb = time.time()
+        if tb == te:
+            easygui.msgbox(title="游戏终止", msg="游戏时间结束")

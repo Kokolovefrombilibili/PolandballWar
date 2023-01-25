@@ -1,7 +1,7 @@
 import pygame
 
 # 编写游戏开头布局
-def state0(screen):
+def state_00(screen):
     # 显示浅绿背景
     bg1 = pygame.image.load("Pic/Bg/Bg1.png")
     screen.blit(bg1, (0, 0))
@@ -13,7 +13,7 @@ def state0(screen):
     teenager = pygame.image.load("Pic/Mode/Teenager.png")
     screen.blit(teenager, (245, 150))
 
-def state1(screen):
+def state_01(screen):
     # 显示浅黄背景
     bg2 = pygame.image.load("Pic/Bg/Bg2.png")
     screen.blit(bg2, (0, 0))

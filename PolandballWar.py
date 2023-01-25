@@ -8,6 +8,8 @@ screen = pygame.display.set_mode((800,600))
 pygame.display.set_caption("波兰球大战")
 # 开始游戏界面
 state = 0
+# 青少年模式计时开始
+Data.Mode.Teenager.Execute()
 
 while True:
     for event in pygame.event.get():
@@ -30,8 +32,8 @@ while True:
 
     # 进行页面切换
     if state == 0:
-        Data.State.state0(screen=screen)
+        Data.State.state_00(screen=screen)
     elif state == 1:
-        Data.State.state1(screen=screen)
+        Data.State.state_01(screen=screen)
 
     pygame.display.update()
