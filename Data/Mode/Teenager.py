@@ -1,6 +1,7 @@
 import easygui
 import json
 import time
+import pygame
 
 def TeenagerSetup():
     try:
@@ -29,13 +30,40 @@ def TeenagerSetup():
         TeenagerSetup()
 
 def Execute():
+    # 得出游玩当日的日期
+    weekdays = time.ctime().split(" ")[0]
+    month = time.ctime().split(" ")[1]
+    date = time.ctime().split(" ")[2]
+    year = time.ctime().split(" ")[4]
+    # 储存日期
+    md = {
+        "weekdays" : weekdays,
+        "month" : month,
+        "date" : date,
+        "year" : year
+    }
+    with open("Save/TeenagerMode/DateMonthYear.json") as f:
+        json.dump(md, f)
+    # 读取文件中存放的每日游玩时间
     with open("Save/TeenagerMode/Time.json") as f:
         dic = json.load(f)
     h = int(dic["hour"])
     m = int(dic["minute"])
+    # 计算出终止时间
     tb = time.time()
     te = tb + h * 3600 + m * 60
     while True:
-        tb = time.time()
-        if tb == te:
+        tbg = time.time()
+        if tbg == te:
             easygui.msgbox(title="游戏终止", msg="游戏时间结束")
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                dt = {
+                    "tb" : tb,
+                    "tbg" : tbg
+                }
+
+                with open("Save/TeenagerMode/NewTime.json", "w", encoding="utf-8") as f:
+                    json.dump(dt, f)
+
