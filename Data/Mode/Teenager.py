@@ -9,8 +9,8 @@ def TeenagerSetup():
         h = easygui.enterbox(title="青少年模式设置", msg="请设置每日所能游玩时间(时)")
         m = easygui.enterbox(title="青少年模式设置", msg="请设置每日所能游玩时间(分)")
         time = {
-            "hour" : h,
-            "minute" : m
+            "hour": h,
+            "minute": m
         }
         # 录入信息进行保存
         with open("Save/TeenagerMode/Time.json", "w", encoding="utf-8") as f:
@@ -29,41 +29,59 @@ def TeenagerSetup():
         easygui.msgbox(title="警告", msg="不能不输入内容")
         TeenagerSetup()
 
-def Execute():
-    # 得出游玩当日的日期
-    weekdays = time.ctime().split(" ")[0]
-    month = time.ctime().split(" ")[1]
-    date = time.ctime().split(" ")[2]
+def Execute_01():
+    # 得出游玩当日的日期并生成字典
+    month = time.ctime().split(" ")[0]
+    date = time.ctime().split(" ")[1]
+    weekdays = time.ctime().split(" ")[2]
     year = time.ctime().split(" ")[4]
-    # 储存日期
     md = {
-        "weekdays" : weekdays,
-        "month" : month,
-        "date" : date,
-        "year" : year
+        "weekdays": weekdays,
+        "month": month,
+        "date": date,
+        "year": year
     }
-    with open("Save/TeenagerMode/DateMonthYear.json") as f:
-        json.dump(md, f)
+    # 读取文件中上次游玩日期
+    with open("Save/TeenagerMode/DateMonthYear.json", "r", encoding="utf-8") as f:
+        mdf = json.load(f)
     # 读取文件中存放的每日游玩时间
-    with open("Save/TeenagerMode/Time.json") as f:
+    with open("Save/TeenagerMode/Time.json", "r", encoding="utf-8") as f:
         dic = json.load(f)
     h = int(dic["hour"])
     m = int(dic["minute"])
-    # 计算出终止时间
-    tb = time.time()
-    te = tb + h * 3600 + m * 60
-    while True:
+    # 得出起始时间
+    if not md is mdf:
         tbg = time.time()
-        if tbg == te:
-            easygui.msgbox(title="游戏终止", msg="游戏时间结束")
+    else:
+        tbg = ted["tbg"]
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                dt = {
-                    "tb" : tb,
-                    "tbg" : tbg
-                }
+    # 计算出终止时间
+    if not md is mdf:
+        te = time.time() + h * 3600 + m * 60
+    else:
+        with open("Save/TeenagerMode/NewTime.json", "r", encoding="utf-8") as f:
+            ted = json.load(f)
+        te = ted["te"]
 
-                with open("Save/TeenagerMode/NewTime.json", "w", encoding="utf-8") as f:
-                    json.dump(dt, f)
+    # 将变量设为全局变量，以便使用
+    tel = [tbg, te]
+    global tel
+
+def Execute_02():
+    # 保存下次起点时间和终止时间
+    md = {
+        "tbg": tel[0],
+        "te": tel[1]
+    }
+    with open("Save/TeenagerMode/NewTime.json", "w", encoding="utf-8") as f:
+        json.dump(md, f)
+    # 保存日期
+    dic = {
+        "weekdays": time.ctime().split(" ")[0],
+        "month": time.ctime().split(" ")[1],
+        "date": time.ctime().split(" ")[2],
+        "year": time.ctime().split(" ")[4]
+    }
+    with open("Save/TeenagerMode/DateMonthYear.json", "w", encoding="utf-8") as f:
+        json.dump(dic, f)
 
