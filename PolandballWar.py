@@ -2,7 +2,6 @@ import pygame
 import sys
 import Data.State
 import Data.Mode.Teenager
-import json
 
 # 初始化
 pygame.init()
