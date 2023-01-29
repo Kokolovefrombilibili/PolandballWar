@@ -13,6 +13,7 @@ def state_00(screen):
     teenager = pygame.image.load("Pic/Mode/Teenager.png")
     screen.blit(teenager, (245, 150))
 
+# 编写青少年模式页面
 def state_01(screen):
     # 显示浅黄背景
     bg2 = pygame.image.load("Pic/Bg/Bg2.png")
