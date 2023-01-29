@@ -16,6 +16,7 @@ while True:
     # 执行计时
     Data.Mode.Teenager.Execute_03()
 
+    # 事件监听
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             Data.Mode.Teenager.Execute_02()
