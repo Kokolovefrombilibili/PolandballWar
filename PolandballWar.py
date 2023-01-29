@@ -4,15 +4,19 @@ import Data.State
 import Data.Mode.Teenager
 import json
 
+# 初始化
 pygame.init()
 screen = pygame.display.set_mode((800, 600))
 pygame.display.set_caption("波兰球大战")
 # 开始游戏界面
 state = 0
 # 青少年模式计时开始
-lis = Data.Mode.Teenager.Execute_01()
+Data.Mode.Teenager.Execute_01()
 
 while True:
+    # 执行计时
+    Data.Mode.Teenager.Execute_03()
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             Data.Mode.Teenager.Execute_02()

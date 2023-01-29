@@ -2,6 +2,7 @@ import easygui
 import json
 import time
 import pygame
+import sys
 
 def TeenagerSetup():
     try:
@@ -28,6 +29,8 @@ def TeenagerSetup():
     except TypeError:
         easygui.msgbox(title="警告", msg="不能不输入内容")
         TeenagerSetup()
+    else:
+        easygui.msgbox(title="青少年模式设置", msg="明天即可生效")
 
 def Execute_01():
     # 得出游玩当日的日期并生成字典
@@ -55,23 +58,25 @@ def Execute_01():
     else:
         tbg = ted["tbg"]
 
+    # 算出间隔时间
+    global tbe
+    tbe = time.time() - tbg
     # 计算出终止时间
+    global te
     if not md is mdf:
         te = time.time() + h * 3600 + m * 60
+        NeedNt = True
     else:
         with open("Save/TeenagerMode/NewTime.json", "r", encoding="utf-8") as f:
             ted = json.load(f)
         te = ted["te"]
 
-    # 将变量设为全局变量，以便使用
-    tel = [tbg, te]
-    global tel
-
 def Execute_02():
+    tbg = time.time() - tbe
     # 保存下次起点时间和终止时间
     md = {
-        "tbg": tel[0],
-        "te": tel[1]
+        "tbg": tbg,
+        "te": te
     }
     with open("Save/TeenagerMode/NewTime.json", "w", encoding="utf-8") as f:
         json.dump(md, f)
@@ -85,3 +90,9 @@ def Execute_02():
     with open("Save/TeenagerMode/DateMonthYear.json", "w", encoding="utf-8") as f:
         json.dump(dic, f)
 
+def Execute_03():
+    tbg = time.time() - tbe
+    if tbg == te:
+        easygui.msgbox(title="警告", msg="游玩时间超时")
+        pygame.quit()
+        sys.exit()
