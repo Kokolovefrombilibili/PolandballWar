@@ -4,7 +4,7 @@ import Data.State
 import Data.Mode.Teenager
 import json
 
-# 初始化1
+# 初始化
 pygame.init()
 screen = pygame.display.set_mode((800, 600))
 pygame.display.set_caption("波兰球大战")
