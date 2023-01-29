@@ -11,8 +11,8 @@ class TestTeenagerModeExecute(unittest.TestCase):
 
     # 测试能否将时间切片
     def test_cut_time_demo(self):
-        print({time.ctime().split(" ")[0], time.ctime().split(" ")[1],
-               time.ctime().split(" ")[2], time.ctime().split(" ")[4]})
+        print([time.ctime().split(" ")[0], time.ctime().split(" ")[1],
+               time.ctime().split(" ")[2], time.ctime().split(" ")[4]])
 
 if __name__ == "__main__":
     unittest.main()
