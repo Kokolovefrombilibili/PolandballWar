@@ -28,3 +28,6 @@ def state_01(screen):
     # 显示设置按钮
     setup = pygame.image.load("Pic/Mode/Setup.png")
     screen.blit(setup, (245, 262))
+
+if __name__ == "__main__":
+    main()
