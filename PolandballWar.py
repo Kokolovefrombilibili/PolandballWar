@@ -1,6 +1,6 @@
 import pygame
 import sys
-import Data.State
+from Data.State import *
 import Data.Mode.Teenager
 
 # 初始化
@@ -38,8 +38,8 @@ while True:
 
     # 进行页面切换
     if state == 0:
-        Data.State.state_00(screen=screen)
+        state_00(screen=screen)
     elif state == 1:
-        Data.State.state_01(screen=screen)
+        state_01(screen=screen)
 
     pygame.display.update()
