@@ -1,7 +1,6 @@
 import easygui
 import json
 import time
-import sys
 
 def TeenagerSetup():
     try:
