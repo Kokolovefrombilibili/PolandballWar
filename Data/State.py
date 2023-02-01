@@ -12,6 +12,9 @@ def state_00(screen):
     # 显示青少年模式按钮
     teenager = pygame.image.load("Pic/Mode/Teenager.png")
     screen.blit(teenager, (245, 150))
+    # 显示开始游戏按钮
+    start_game = pygame.image.load("Pic/Mode/StratGame.png")
+    screen.blit(start_game, (245, 262))
 
 # 编写青少年模式页面
 def state_01(screen):
