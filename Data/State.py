@@ -36,7 +36,7 @@ def state_01(screen):
 def state_02(screen):
     # 显示黄绿背景
     bg3 = pygame.image.load("Pic/Bg/Bg3.png")
-    screen.blit(bg2, (0, 0))
+    screen.blit(bg3, (0, 0))
 
 if __name__ == "__main__":
     main()
