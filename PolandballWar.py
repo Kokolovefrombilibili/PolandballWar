@@ -35,11 +35,16 @@ while True:
             # 点击青少年模式设置按钮后
             elif state == 1 and 245 <= x <= 537 and 262 <= y <= 344:
                 Data.Mode.Teenager.TeenagerSetup()
+            # 进入游戏
+            elif state == 0 and 245 <= x <= 537 and 262 <= y <= 344:
+                state = 2
 
     # 进行页面切换
     if state == 0:
         state_00(screen=screen)
     elif state == 1:
         state_01(screen=screen)
+    elif state == 2:
+        state_02(screen=screen)
 
     pygame.display.update()
