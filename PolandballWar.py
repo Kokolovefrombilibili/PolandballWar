@@ -38,6 +38,9 @@ while True:
             # 进入游戏
             elif state == 0 and 245 <= x <= 537 and 262 <= y <= 344:
                 state = 2
+            # 退出游戏界面
+            elif state == 2 and 30 <= x <= 176 and 30 <= y <= 71:
+                state = 0
 
     # 进行页面切换
     if state == 0:
