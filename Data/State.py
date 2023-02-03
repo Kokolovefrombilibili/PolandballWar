@@ -37,6 +37,10 @@ def state_02(screen):
     # 显示黄绿背景
     bg3 = pygame.image.load("Pic/Bg/Bg3.png")
     screen.blit(bg3, (0, 0))
+    # 显示返回按钮
+    back = pygame.image.load("Pic/Mode/Back.png")
+    back = pygame.transform.scale(back, (146, 41))
+    screen.blit(back, (30, 30))
 
 if __name__ == "__main__":
     main()
