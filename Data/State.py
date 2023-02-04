@@ -41,6 +41,10 @@ def state_02(screen):
     back = pygame.image.load("Pic/Mode/Back.png")
     back = pygame.transform.scale(back, (146, 41))
     screen.blit(back, (30, 30))
+    # 显示进入关卡按钮
+    opengame = pygame.image.load("Pic/Mode/OpenGame.png")
+    opengame = pygame.transform.scale(opengame, (146, 41))
+    screen.blit(opengame, (206, 30))
 
 if __name__ == "__main__":
     main()
