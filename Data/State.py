@@ -7,8 +7,8 @@ def state_00(screen):
     screen.blit(bg1, (0, 0))
     # 显示logo
     my_font = pygame.font.Font("Font/Xiaowei.otf", 64)
-    Title = my_font.render("波兰球大战", True, (0, 0, 0))
-    screen.blit(Title, (240, 30))
+    Title = my_font.render("波了个波", True, (0, 0, 0))
+    screen.blit(Title, (260, 30))
     # 显示青少年模式按钮
     teenager = pygame.image.load("Pic/Mode/Teenager.png")
     screen.blit(teenager, (245, 150))
