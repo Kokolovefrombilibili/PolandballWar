@@ -41,6 +41,12 @@ while True:
             # 退出游戏界面
             elif state == 2 and 30 <= x <= 176 and 30 <= y <= 71:
                 state = 0
+            # 进入章节选择
+            elif state == 2 and 206 <= x <= 352 and 30 <= y <= 71:
+                state = 3
+            # 退出章节选择
+            elif state == 3 and 50 <= x <= 196 and 30 <= y <= 71:
+                state = 2
 
     # 进行页面切换
     if state == 0:
@@ -49,5 +55,7 @@ while True:
         state_01(screen=screen)
     elif state == 2:
         state_02(screen=screen)
+    elif state == 3:
+        state_03(screen=screen)
 
     pygame.display.update()
