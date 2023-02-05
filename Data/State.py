@@ -46,5 +46,19 @@ def state_02(screen):
     opengame = pygame.transform.scale(opengame, (146, 41))
     screen.blit(opengame, (206, 30))
 
+# 进入章节选择界面
+def state_03(screen):
+    # 显示蓝紫背景
+    bg4 = pygame.image.load("Pic/Bg/Bg4.png")
+    screen.blit(bg4, (0, 0))
+    # 显示标题
+    my_font = pygame.font.Font("Font/Xiaowei.otf", 64)
+    Title = my_font.render("章节选择", True, (0, 0, 0))
+    screen.blit(Title, (260, 30))
+    # 显示返回按钮
+    back = pygame.image.load("Pic/Mode/Back.png")
+    back = pygame.transform.scale(back, (146, 41))
+    screen.blit(back, (50, 30))
+
 if __name__ == "__main__":
     main()
