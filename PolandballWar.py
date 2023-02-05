@@ -6,7 +6,7 @@ import Data.Mode.Teenager
 # 初始化
 pygame.init()
 screen = pygame.display.set_mode((800, 600))
-pygame.display.set_caption("波兰球大战")
+pygame.display.set_caption("波了个波")
 # 开始游戏界面
 state = 0
 # 青少年模式计时开始
