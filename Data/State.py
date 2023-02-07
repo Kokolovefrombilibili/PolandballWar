@@ -59,6 +59,3 @@ def state_03(screen):
     back = pygame.image.load("Pic/Mode/Back.png")
     back = pygame.transform.scale(back, (146, 41))
     screen.blit(back, (50, 30))
-
-if __name__ == "__main__":
-    main()
