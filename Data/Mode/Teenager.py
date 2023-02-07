@@ -63,7 +63,6 @@ def Execute_01():
     global te
     if not md is mdf:
         te = time.time() + h * 3600 + m * 60
-        NeedNt = True
     else:
         with open("Save/TeenagerMode/NewTime.json", "r", encoding="utf-8") as f:
             ted = json.load(f)
