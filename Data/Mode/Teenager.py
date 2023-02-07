@@ -94,6 +94,3 @@ def Execute_03():
         easygui.msgbox(title="警告", msg="游玩时间超时")
         pygame.quit()
         sys.exit()
-
-if __name__ == "__main__":
-    main()
