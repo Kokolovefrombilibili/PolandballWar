@@ -2,7 +2,7 @@ import easygui
 import json
 import time
 
-def TeenagerSetup():
+def TeenagerSetup() -> None:
     try:
         # 制作待保存数据
         h = easygui.enterbox(title="青少年模式设置", msg="请设置每日所能游玩时间(时)")
@@ -30,7 +30,7 @@ def TeenagerSetup():
     else:
         easygui.msgbox(title="青少年模式设置", msg="明天即可生效")
 
-def Execute_01():
+def Execute_01() -> None:
     # 得出游玩当日的日期并生成字典
     month = time.ctime().split(" ")[0]
     date = time.ctime().split(" ")[1]
@@ -68,7 +68,7 @@ def Execute_01():
             ted = json.load(f)
         te = ted["te"]
 
-def Execute_02():
+def Execute_02() -> None:
     tbg = time.time() - tbe
     # 保存下次起点时间和终止时间
     md = {
@@ -87,7 +87,7 @@ def Execute_02():
     with open("Save/TeenagerMode/DateMonthYear.json", "w", encoding="utf-8") as f:
         json.dump(dic, f)
 
-def Execute_03():
+def Execute_03() -> None:
     tbg = time.time() - tbe
     if tbg == te:
         easygui.msgbox(title="警告", msg="游玩时间超时")
