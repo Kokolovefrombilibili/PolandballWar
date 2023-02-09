@@ -1,7 +1,7 @@
 import pygame
 
 # 编写游戏开头布局
-def state_00(screen):
+def state_00(screen) -> None:
     # 显示浅绿背景
     bg1 = pygame.image.load("Pic/Bg/Bg1.png")
     screen.blit(bg1, (0, 0))
@@ -17,7 +17,7 @@ def state_00(screen):
     screen.blit(start_game, (245, 262))
 
 # 编写青少年模式页面
-def state_01(screen):
+def state_01(screen) -> None:
     # 显示浅黄背景
     bg2 = pygame.image.load("Pic/Bg/Bg2.png")
     screen.blit(bg2, (0, 0))
@@ -33,7 +33,7 @@ def state_01(screen):
     screen.blit(setup, (245, 262))
 
 # 编写游戏首页
-def state_02(screen):
+def state_02(screen) -> None:
     # 显示黄绿背景
     bg3 = pygame.image.load("Pic/Bg/Bg3.png")
     screen.blit(bg3, (0, 0))
@@ -47,7 +47,7 @@ def state_02(screen):
     screen.blit(opengame, (206, 30))
 
 # 进入章节选择界面
-def state_03(screen):
+def state_03(screen) -> None:
     # 显示蓝紫背景
     bg4 = pygame.image.load("Pic/Bg/Bg4.png")
     screen.blit(bg4, (0, 0))
